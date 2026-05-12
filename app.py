@@ -37,7 +37,7 @@ if st.button("Predict") and smiles_list:
             predictions = np.round(predict_boiling_point(model, smiles_list, mode='gcn'),3)
         else:
             model = load_mpnn_model()
-            predictions = predict_boiling_point(model, smiles_list, mode='mpnn')
+            predictions = np.round(predict_boiling_point(model, smiles_list, mode='mpnn'),3)
 
         result_df = pd.DataFrame({"SMILES": smiles_list, "Predicted Boiling Point (K)": predictions})
         st.success("Prediction Complete")
